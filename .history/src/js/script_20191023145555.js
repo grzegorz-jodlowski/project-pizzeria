@@ -74,14 +74,11 @@
       // create element using utils.createElementFromHtml
 
       thisProduct.element = utils.createDOMFromHTML(generetedHTML);
+      console.log('TCL: Product -> renderInMenu -> thisProduct.element', thisProduct.element);
 
       // find menu container
 
-      const menuContainer = document.querySelector(select.containerOf.menu);
-
       // add element to menu
-
-      menuContainer.appendChild(thisProduct.element);
 
 
     }

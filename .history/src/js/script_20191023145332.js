@@ -73,15 +73,9 @@
 
       // create element using utils.createElementFromHtml
 
-      thisProduct.element = utils.createDOMFromHTML(generetedHTML);
-
       // find menu container
 
-      const menuContainer = document.querySelector(select.containerOf.menu);
-
       // add element to menu
-
-      menuContainer.appendChild(thisProduct.element);
 
 
     }

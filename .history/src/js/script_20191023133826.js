@@ -56,7 +56,7 @@
     constructor() {
       const thisProduct = this;
 
-      console.log('new Product', thisProduct);
+      console.log('TCL: Product -> constructor -> thisProduct', thisProduct);
 
 
     }
@@ -66,7 +66,7 @@
   const app = {
     initMenu: function () {
       const testProduct = new Product();
-      console.log('testProduct', testProduct);
+      console.log('TCL: testProduct', testProduct);
     },
     init: function () {
       const thisApp = this;

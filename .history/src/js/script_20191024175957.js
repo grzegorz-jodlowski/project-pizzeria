@@ -103,36 +103,32 @@
 
         event.preventDefault();
 
-        /* toggle active class on element of thisProduct */
 
-        thisProduct.element.classList.toggle('active');
 
-        /* find all active products */
 
-        const allActiveProducts = document.querySelectorAll('.product.' + classNames.menuProduct.wrapperActive);
-        console.log('TCL: Product -> initAccordion -> allActiveProducts', allActiveProducts);
-
-        /* START LOOP: for each active product */
-
-        for (let activeProduct of allActiveProducts) {
-
-          /* START: if the active product isn't the element of thisProduct */
-
-          if (activeProduct !== thisProduct.element) {
-
-            /* remove class active for the active product */
-
-            activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
-
-            /* END: if the active product isn't the element of thisProduct */
-          }
-
-          /* END LOOP: for each active product */
-        }
-
-        /* END: click event listener to trigger */
       });
+
+
+      /* toggle active class on element of thisProduct */
+
+      /* find all active products */
+
+      /* START LOOP: for each active product */
+
+      /* START: if the active product isn't the element of thisProduct */
+
+      /* remove class active for the active product */
+
+      /* END: if the active product isn't the element of thisProduct */
+
+      /* END LOOP: for each active product */
+
+      /* END: click event listener to trigger */
+
     }
+
+
+
   }
 
 

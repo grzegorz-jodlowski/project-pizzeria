@@ -109,7 +109,7 @@
 
         /* find all active products */
 
-        const allActiveProducts = document.querySelectorAll('.product.' + classNames.menuProduct.wrapperActive);
+        const allActiveProducts = document.querySelectorAll('.product' + classNames.menuProduct.wrapperActive);
         console.log('TCL: Product -> initAccordion -> allActiveProducts', allActiveProducts);
 
         /* START LOOP: for each active product */
@@ -132,7 +132,20 @@
 
         /* END: click event listener to trigger */
       });
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
   }
 
 

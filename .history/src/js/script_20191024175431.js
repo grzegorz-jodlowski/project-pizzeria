@@ -94,45 +94,31 @@
       const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
       console.log('TCL: Product -> initAccordion -> clickableTrigger', clickableTrigger);
 
+
       /* START: click event listener to trigger */
 
-      clickableTrigger.addEventListener('click', function (event) {
-        console.log('TCL: Product -> initAccordion ->', 'click');
+      /* prevent default action for event */
 
-        /* prevent default action for event */
+      /* toggle active class on element of thisProduct */
 
-        event.preventDefault();
+      /* find all active products */
 
-        /* toggle active class on element of thisProduct */
+      /* START LOOP: for each active product */
 
-        thisProduct.element.classList.toggle('active');
+      /* START: if the active product isn't the element of thisProduct */
 
-        /* find all active products */
+      /* remove class active for the active product */
 
-        const allActiveProducts = document.querySelectorAll('.product.' + classNames.menuProduct.wrapperActive);
-        console.log('TCL: Product -> initAccordion -> allActiveProducts', allActiveProducts);
+      /* END: if the active product isn't the element of thisProduct */
 
-        /* START LOOP: for each active product */
+      /* END LOOP: for each active product */
 
-        for (let activeProduct of allActiveProducts) {
+      /* END: click event listener to trigger */
 
-          /* START: if the active product isn't the element of thisProduct */
-
-          if (activeProduct !== thisProduct.element) {
-
-            /* remove class active for the active product */
-
-            activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
-
-            /* END: if the active product isn't the element of thisProduct */
-          }
-
-          /* END LOOP: for each active product */
-        }
-
-        /* END: click event listener to trigger */
-      });
     }
+
+
+
   }
 
 

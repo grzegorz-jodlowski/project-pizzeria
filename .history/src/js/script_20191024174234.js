@@ -110,7 +110,6 @@
       /* END LOOP: for each active product */
 
       /* END: click event listener to trigger */
-
     }
 
 

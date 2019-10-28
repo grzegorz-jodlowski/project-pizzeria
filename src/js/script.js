@@ -149,15 +149,31 @@
 
     initOrderForm() {
       const thisProduct = this;
-      console.log('initOrderForm', thisProduct);
+
+      thisProduct.form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        thisProduct.processOrder();
+        console.log('Subimited');
+
+      });
+
+      for (let input of thisProduct.formInputs) {
+        input.addEventListener('change', function () {
+          thisProduct.processOrder();
+          console.log('Change in form');
+        });
+      }
+
+      thisProduct.cartButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        thisProduct.processOrder();
+        console.log('button clicked');
+      });
 
     }
 
     processOrder() {
       const thisProduct = this;
-      console.log('processOrder', thisProduct);
-
-
 
     }
   }

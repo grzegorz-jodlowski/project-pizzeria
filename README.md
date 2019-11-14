@@ -34,7 +34,7 @@ This
 </br>
 
 ## <a name="what"></a>What I learned?
-- w
+- plugins to VS code (list)
 
 
 </br>

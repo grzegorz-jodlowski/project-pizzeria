@@ -178,6 +178,22 @@
       const formData = utils.serializeFormToObject(thisProduct.form);
       console.log(' : formData', formData);
 
+      let price = thisProduct.data.price;
+
+      // START loop for every "params" elements
+
+      // START loop for every options in param element
+
+      // Rise price if not default option is checked
+
+      // Reduce price if default option is not checked
+
+      // END loop for every options in param element
+
+      // END loop for every "params" elements
+
+      thisProduct.priceElem = price;
+
     }
   }
 

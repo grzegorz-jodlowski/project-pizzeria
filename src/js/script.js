@@ -183,22 +183,33 @@
 
       // START loop for every "params" elements
       for (let productParam in thisProduct.data.params) {
+        console.log(' : productParam', productParam);
+        const param = thisProduct.data.params[productParam];
+        console.log(' : param', param);
 
         // START loop for every options in param element
-        for (let productOption in thisProduct.data.params[productParam].options) {
+        for (let productOption in param.options) {
+          const option = param.options[productOption];
+          console.log(' : option', option);
 
           // Rise price if not default option is checked
 
-
-
+          if (formData.hasOwnProperty(productParam) && formData[productParam].indexOf(productOption) > -1) {
+            if (!option.default) {
+              price = price + option.price;
+              console.log(price);
+            }
+          }
           // Reduce price if default option is not checked
-
+          else if (option.default) {
+            price = price - option.price;
+            console.log(price);
+          }
           // END loop for every options in param element
         }
         // END loop for every "params" elements
       }
       thisProduct.priceElem = price;
-
     }
   }
 

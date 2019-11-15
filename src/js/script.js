@@ -180,18 +180,23 @@
 
       let price = thisProduct.data.price;
 
+
       // START loop for every "params" elements
+      for (let productParam in thisProduct.data.params) {
 
-      // START loop for every options in param element
+        // START loop for every options in param element
+        for (let productOption in thisProduct.data.params[productParam].options) {
 
-      // Rise price if not default option is checked
+          // Rise price if not default option is checked
 
-      // Reduce price if default option is not checked
 
-      // END loop for every options in param element
 
-      // END loop for every "params" elements
+          // Reduce price if default option is not checked
 
+          // END loop for every options in param element
+        }
+        // END loop for every "params" elements
+      }
       thisProduct.priceElem = price;
 
     }

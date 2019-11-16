@@ -97,6 +97,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion() {
@@ -176,21 +177,21 @@
       const thisProduct = this;
 
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log(' : formData', formData);
+      //console.log(' : formData', formData);
 
       let price = thisProduct.data.price;
 
 
       // START loop for every "params" elements
       for (let productParam in thisProduct.data.params) {
-        console.log(' : productParam', productParam);
+        //console.log(' : productParam', productParam);
         const param = thisProduct.data.params[productParam];
-        console.log(' : param', param);
+        //console.log(' : param', param);
 
         // START loop for every options in param element
         for (let productOption in param.options) {
           const option = param.options[productOption];
-          console.log(' : option', option);
+          //console.log(' : option', option);
 
           // Rise price if not default option is checked
 
@@ -204,6 +205,18 @@
           else if (option.default) {
             price = price - option.price;
             console.log(price);
+          }
+
+          const selectedElements = thisProduct.imageWrapper.querySelectorAll(`.${productParam}-${productOption}`);
+
+          if (formData.hasOwnProperty(productParam) && formData[productParam].indexOf(productOption) > -1) {
+            for (let key of selectedElements) {
+              key.classList.add(classNames.menuProduct.imageVisible);
+            }
+          } else {
+            for (let key of selectedElements) {
+              key.classList.remove(classNames.menuProduct.imageVisible);
+            }
           }
           // END loop for every options in param element
         }

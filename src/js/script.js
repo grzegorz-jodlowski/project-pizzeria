@@ -201,19 +201,31 @@
               console.log(price);
             }
           }
+
           // Reduce price if default option is not checked
+
           else if (option.default) {
             price = price - option.price;
             console.log(price);
           }
 
+          // Select all images of selected ingredients
+
           const selectedElements = thisProduct.imageWrapper.querySelectorAll(`.${productParam}-${productOption}`);
 
+          // Check if option is selected
+
           if (formData.hasOwnProperty(productParam) && formData[productParam].indexOf(productOption) > -1) {
+
+            // add class "active" to html of image
+
             for (let key of selectedElements) {
               key.classList.add(classNames.menuProduct.imageVisible);
             }
           } else {
+
+            // remove class "active" to html of image
+
             for (let key of selectedElements) {
               key.classList.remove(classNames.menuProduct.imageVisible);
             }

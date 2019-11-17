@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://grzegorz-jodlowski.github.io/project-pizzeria/"><img src="logo.jpg" title="logo" alt=""></a>
+<a href="https://grzegorz-jodlowski.github.io/project-pizzeria/"><img src="src/images/logo8.jpg" title="pizza" alt="salami pizza"></a>
 </p>
 
 

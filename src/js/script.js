@@ -178,7 +178,10 @@
     initAmountWidget() {
       const thisProduct = this;
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
-
+      thisProduct.amountWidgetElem.addEventListener('updated', function (event) {
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
     }
 
     processOrder() {
@@ -242,7 +245,9 @@
         }
         // END loop for every "params" elements
       }
-      thisProduct.priceElem = price;
+      price *= thisProduct.amountWidget.value;
+
+      thisProduct.priceElem.innerHTML = price;
     }
   }
 
@@ -259,6 +264,12 @@
       console.log('Constructor arguments', element);
     }
 
+    announce() {
+      const thisWidget = this;
+
+      const event = new Event('updated');
+      thisWidget.element.dispatchEvent(event);
+    }
 
     getElements(element) {
       const thisWidget = this;
@@ -277,7 +288,7 @@
       // TODO: Add validation
 
       thisWidget.value = newValue;
-      announce();
+      thisWidget.announce();
       thisWidget.input.value = thisWidget.value;
 
     }
@@ -285,22 +296,18 @@
     initActions() {
       const thisWidget = this;
 
-      thisWidget.input.addEventListener('change', thisWidget.setValue(thisWidget.input.value)); //setValue z takim samym argumentem, jak w konstruktorze (czyli z wartością inputa),
+      thisWidget.input.addEventListener('change', function (event) {
+        event.preventDefault();
+        thisWidget.setValue(thisWidget.input.value);
+      });
       thisWidget.linkDecrease.addEventListener('click', function (event) {
         event.preventDefault();
-        thisWidget.setValue(parseInt(thisWidget.input.value) - 1);
+        thisWidget.setValue(thisWidget.value - 1);
       });
       thisWidget.linkIncrease.addEventListener('click', function (event) {
         event.preventDefault();
-        thisWidget.setValue(parseInt(thisWidget.input.value) + 1);
+        thisWidget.setValue(thisWidget.value + 1);
       });
-    }
-
-    announce() {
-      const thisWidget = this;
-
-      const event = new Event('update');
-      thisWidget.element.dispatchEvent(event);
     }
   }
 

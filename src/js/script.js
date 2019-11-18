@@ -62,6 +62,7 @@
       thisProduct.getElements();
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
+      thisProduct.initAmountWidget();
       thisProduct.processOrder();
       console.log('new Product', thisProduct);
 
@@ -98,6 +99,7 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
+      thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
     }
 
     initAccordion() {
@@ -106,12 +108,12 @@
       /* find the clickable trigger (the element that should react to clicking) */
 
       const clickableTrigger = thisProduct.accordionTrigger;
-      console.log('TCL: Product -> initAccordion -> clickableTrigger', clickableTrigger);
+      //console.log('TCL: Product -> initAccordion -> clickableTrigger', clickableTrigger);
 
       /* START: click event listener to trigger */
 
       clickableTrigger.addEventListener('click', function (event) {
-        console.log('TCL: Product -> initAccordion ->', 'click');
+        //console.log('TCL: Product -> initAccordion ->', 'click');
 
         /* prevent default action for event */
 
@@ -124,7 +126,7 @@
         /* find all active products */
 
         const allActiveProducts = document.querySelectorAll(select.all.menuProductsActive);
-        console.log('TCL: Product -> initAccordion -> allActiveProducts', allActiveProducts);
+        //console.log('TCL: Product -> initAccordion -> allActiveProducts', allActiveProducts);
 
         /* START LOOP: for each active product */
 
@@ -170,6 +172,12 @@
         thisProduct.processOrder();
         console.log('button clicked');
       });
+
+    }
+
+    initAmountWidget() {
+      const thisProduct = this;
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
 
     }
 
@@ -238,7 +246,15 @@
     }
   }
 
+  class AmountWidget {
+    constructor(element) {
+      const thisWidget = this;
 
+      console.log('amountWidget', thisWidget);
+      console.log('Constructor arguments', element);
+    }
+
+  }
 
   const app = {
     initMenu: function () {

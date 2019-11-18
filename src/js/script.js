@@ -255,6 +255,8 @@
     constructor(element) {
       const thisWidget = this;
 
+      thisWidget.value = settings.amountWidget.defaultValue;
+
       thisWidget.getElements(element);
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
@@ -287,8 +289,11 @@
 
       // TODO: Add validation
 
-      thisWidget.value = newValue;
-      thisWidget.announce();
+      if (newValue !== thisWidget.input.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
+        thisWidget.value = newValue;
+        thisWidget.announce();
+      }
+
       thisWidget.input.value = thisWidget.value;
 
     }

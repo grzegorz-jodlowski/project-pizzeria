@@ -35,6 +35,7 @@ This
 
 ## <a name="what"></a>What I learned?
 - plugins to VS code (list)
+- Meld czy P4Merge – pozwalają one nawet na porównywanie całych katalogów.
 
 
 </br>

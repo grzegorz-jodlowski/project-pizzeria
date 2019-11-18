@@ -250,10 +250,34 @@
     constructor(element) {
       const thisWidget = this;
 
+      thisWidget.getElements(element);
+      thisWidget.setValue(thisWidget.input.value);
+
       console.log('amountWidget', thisWidget);
       console.log('Constructor arguments', element);
     }
 
+
+    getElements(element) {
+      const thisWidget = this;
+
+      thisWidget.element = element;
+      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+    }
+
+    setValue(value) {
+      const thisWidget = this;
+
+      const newValue = parseInt(value);
+
+      // TODO: Add validation
+
+      thisWidget.value = newValue;
+      thisWidget.input.value = thisWidget.value;
+
+    }
   }
 
   const app = {

@@ -252,6 +252,8 @@
 
       thisWidget.getElements(element);
       thisWidget.setValue(thisWidget.input.value);
+      thisWidget.initActions();
+
 
       console.log('amountWidget', thisWidget);
       console.log('Constructor arguments', element);
@@ -275,8 +277,30 @@
       // TODO: Add validation
 
       thisWidget.value = newValue;
+      announce();
       thisWidget.input.value = thisWidget.value;
 
+    }
+
+    initActions() {
+      const thisWidget = this;
+
+      thisWidget.input.addEventListener('change', thisWidget.setValue(thisWidget.input.value)); //setValue z takim samym argumentem, jak w konstruktorze (czyli z wartością inputa),
+      thisWidget.linkDecrease.addEventListener('click', function (event) {
+        event.preventDefault();
+        thisWidget.setValue(parseInt(thisWidget.input.value) - 1);
+      });
+      thisWidget.linkIncrease.addEventListener('click', function (event) {
+        event.preventDefault();
+        thisWidget.setValue(parseInt(thisWidget.input.value) + 1);
+      });
+    }
+
+    announce() {
+      const thisWidget = this;
+
+      const event = new Event('update');
+      thisWidget.element.dispatchEvent(event);
     }
   }
 

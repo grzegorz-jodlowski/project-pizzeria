@@ -92,7 +92,10 @@
       thisProduct.processOrder();
       //console.log('new Product', thisProduct);
 
-
+    }
+    addToCart() {
+      const thisProduct = this;
+      app.cart.add(thisProduct);
     }
 
     renderInMenu() {
@@ -196,7 +199,8 @@
       thisProduct.cartButton.addEventListener('click', function (event) {
         event.preventDefault();
         thisProduct.processOrder();
-        console.log('button clicked');
+        thisProduct.addToCart();
+        //console.log('button clicked');
       });
 
     }
@@ -275,6 +279,7 @@
 
       thisProduct.priceElem.innerHTML = price;
     }
+
   }
 
   class AmountWidget {
@@ -369,6 +374,12 @@
         event.preventDefault();
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
+    }
+
+    add(menuProduct) {
+      // const thisCart = this;
+
+      console.log('adding product', menuProduct);
     }
 
   }

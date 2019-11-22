@@ -30,6 +30,8 @@ This
 - CSS
 - SCSS
 - JavaScript
+- npm
+- GIT
 
 </br>
 

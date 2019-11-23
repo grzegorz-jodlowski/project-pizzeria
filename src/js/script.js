@@ -91,7 +91,6 @@
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
       //console.log('new Product', thisProduct);
-
     }
     addToCart() {
       const thisProduct = this;
@@ -186,7 +185,6 @@
         event.preventDefault();
         thisProduct.processOrder();
         console.log('Subimited');
-
       });
 
       for (let input of thisProduct.formInputs) {
@@ -202,7 +200,6 @@
         thisProduct.addToCart();
         //console.log('button clicked');
       });
-
     }
 
     initAmountWidget() {
@@ -219,7 +216,6 @@
 
       const formData = utils.serializeFormToObject(thisProduct.form);
       //console.log(' : formData', formData);
-
       let price = thisProduct.data.price;
 
 
@@ -235,7 +231,6 @@
           //console.log(' : option', option);
 
           // Rise price if not default option is checked
-
           if (formData.hasOwnProperty(productParam) && formData[productParam].indexOf(productOption) > -1) {
             if (!option.default) {
               price = price + option.price;
@@ -244,27 +239,22 @@
           }
 
           // Reduce price if default option is not checked
-
           else if (option.default) {
             price = price - option.price;
             console.log(price);
           }
 
           // Select all images of selected ingredients
-
           const selectedElements = thisProduct.imageWrapper.querySelectorAll(`.${productParam}-${productOption}`);
 
           // Check if option is selected
-
           if (formData.hasOwnProperty(productParam) && formData[productParam].indexOf(productOption) > -1) {
 
             // add class "active" to html of image
-
             for (let key of selectedElements) {
               key.classList.add(classNames.menuProduct.imageVisible);
             }
           } else {
-
             // remove class "active" to html of image
 
             for (let key of selectedElements) {
@@ -277,10 +267,8 @@
       }
       thisProduct.priceSingle = price;
       thisProduct.price = thisProduct.priceSingle * thisProduct.amountWidget.value;
-
       thisProduct.priceElem.innerHTML = thisProduct.price;
     }
-
   }
 
   class AmountWidget {
@@ -356,7 +344,6 @@
       thisCart.getElements(element);
       //console.log('new Cart', thisCart);
       thisCart.initActions();
-
     }
 
     getElements(element) {
@@ -364,9 +351,7 @@
 
       thisCart.dom = {};
       thisCart.dom.wrapper = element;
-
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
-
     }
 
     initActions() {
@@ -382,7 +367,6 @@
 
       console.log('adding product', menuProduct);
     }
-
   }
 
   const app = {
@@ -396,6 +380,7 @@
     },
     initData: function () {
       const thisApp = this;
+
       thisApp.data = dataSource;
     },
 

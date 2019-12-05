@@ -95,6 +95,10 @@
     addToCart() {
       const thisProduct = this;
       app.cart.add(thisProduct);
+
+
+
+
     }
 
     renderInMenu() {
@@ -251,13 +255,13 @@
           // Check if option is selected
           if (formData.hasOwnProperty(productParam) && formData[productParam].indexOf(productOption) > -1) {
 
-            // if (!thisProduct.params[productParam]) {
-            //   thisProduct.params[productParam] = {
-            //     label: param.label,
-            //     option: {},
-            //   };
-            // }
-            // thisProduct.params[productParam].options[productOption] = option.label;
+            if (!thisProduct.params[productParam]) {
+              thisProduct.params[productParam] = {
+                label: param.label,
+                options: {},
+              };
+            }
+            thisProduct.params[productParam].options[productOption] = option.label;
 
             // add class "active" to html of image
             for (let key of selectedElements) {

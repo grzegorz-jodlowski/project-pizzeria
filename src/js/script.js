@@ -117,7 +117,6 @@
       // add element to menu
 
       menuContainer.appendChild(thisProduct.element);
-
     }
 
     getElements() {
@@ -291,8 +290,6 @@
       thisWidget.getElements(element);
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
-
-
       //console.log('amountWidget', thisWidget);
       //console.log('Constructor arguments', element);
     }
@@ -329,7 +326,6 @@
       }
 
       thisWidget.input.value = thisWidget.value;
-
     }
 
     initActions() {
@@ -422,7 +418,6 @@
 
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       //console.log(' : thisCart.products', thisCart.products);
-
       thisCart.update();
     }
   }
@@ -441,7 +436,6 @@
 
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
-
       //console.log(' : menuProduct', menuProduct);
       //console.log(' : thisCartProduct', thisCartProduct);
     }

@@ -375,9 +375,9 @@
           elem.innerHTML = thisCart[key];
         }
       }
-      console.log(' : thisCart.totalNumber', thisCart.totalNumber);
-      console.log(' : thisCart.subtotalPrice', thisCart.subtotalPrice);
-      console.log(' : thisCart.totalPrice', thisCart.totalPrice);
+      // console.log(' : thisCart.totalNumber', thisCart.totalNumber);
+      // console.log(' : thisCart.subtotalPrice', thisCart.subtotalPrice);
+      // console.log(' : thisCart.totalPrice', thisCart.totalPrice);
     }
 
     getElements(element) {

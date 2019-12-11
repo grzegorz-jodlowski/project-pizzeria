@@ -216,7 +216,7 @@
       const thisProduct = this;
 
       const formData = utils.serializeFormToObject(thisProduct.form);
-      //console.log(' : formData', formData);
+      console.log(' : formData', formData);
       thisProduct.params = {};
       let price = thisProduct.data.price;
 
@@ -364,6 +364,8 @@
       thisCart.subtotalPrice = 0;
 
       for (let product of thisCart.products) {
+        console.log(' : product', product);
+
         thisCart.subtotalPrice = thisCart.subtotalPrice + product.price;
         thisCart.totalNumber = thisCart.totalNumber + product.amount;
       }
@@ -375,9 +377,9 @@
           elem.innerHTML = thisCart[key];
         }
       }
-      // console.log(' : thisCart.totalNumber', thisCart.totalNumber);
-      // console.log(' : thisCart.subtotalPrice', thisCart.subtotalPrice);
-      // console.log(' : thisCart.totalPrice', thisCart.totalPrice);
+      console.log(' : thisCart.totalNumber', thisCart.totalNumber);
+      console.log(' : thisCart.subtotalPrice', thisCart.subtotalPrice);
+      console.log(' : thisCart.totalPrice', thisCart.totalPrice);
     }
 
     getElements(element) {
@@ -456,7 +458,7 @@
 
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
 
-      thisCartProduct.dom.amountWidget.addEventListener('click', function (event) {
+      thisCartProduct.dom.amountWidget.addEventListener('updated', function (event) {
         event.preventDefault();
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
         thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;

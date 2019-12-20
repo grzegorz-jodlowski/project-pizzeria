@@ -427,6 +427,12 @@
       //console.log(' : thisCart.products', thisCart.products);
       thisCart.update();
     }
+
+    remove(cartProduct) {
+      const thisCart = this;
+
+    }
+
   }
 
   class CartProduct {

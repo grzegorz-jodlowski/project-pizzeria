@@ -430,6 +430,7 @@
 
     remove(cartProduct) {
       const thisCart = this;
+      const index = thisCart.products[cartProduct];
 
     }
 

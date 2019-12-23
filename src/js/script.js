@@ -290,8 +290,6 @@
       thisWidget.getElements(element);
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
-      //console.log('amountWidget', thisWidget);
-      //console.log('Constructor arguments', element);
     }
 
     announce() {
@@ -352,7 +350,6 @@
 
       thisCart.products = [];
       thisCart.getElements(element);
-      //console.log('new Cart', thisCart);
       thisCart.initActions();
       thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
     }
@@ -364,8 +361,6 @@
       thisCart.subtotalPrice = 0;
 
       for (let product of thisCart.products) {
-        console.log(' : product', product);
-
         thisCart.subtotalPrice = thisCart.subtotalPrice + product.price;
         thisCart.totalNumber = thisCart.totalNumber + product.amount;
       }
@@ -377,9 +372,6 @@
           elem.innerHTML = thisCart[key];
         }
       }
-      console.log(' : thisCart.totalNumber', thisCart.totalNumber);
-      console.log(' : thisCart.subtotalPrice', thisCart.subtotalPrice);
-      console.log(' : thisCart.totalPrice', thisCart.totalPrice);
     }
 
     getElements(element) {
@@ -389,7 +381,6 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
-
       thisCart.renderTotalsKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
 
       for (let key of thisCart.renderTotalsKeys) {
@@ -416,26 +407,22 @@
 
     add(menuProduct) {
       const thisCart = this;
-
       const generatedHTML = templates.cartProduct(menuProduct);
-
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
 
       thisCart.dom.productList.appendChild(generatedDOM);
-
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-      //console.log(' : thisCart.products', thisCart.products);
       thisCart.update();
     }
 
     remove(cartProduct) {
       const thisCart = this;
       const index = thisCart.products.indexOf(cartProduct);
+
       thisCart.products.splice(index, 1);
       cartProduct.dom.wrapper.remove();
       thisCart.update();
     }
-
   }
 
   class CartProduct {
@@ -447,14 +434,10 @@
       thisCartProduct.price = menuProduct.price;
       thisCartProduct.priceSingle = menuProduct.priceSingle;
       thisCartProduct.amount = menuProduct.amount;
-
       thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
-
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
       thisCartProduct.initActions();
-      //console.log(' : menuProduct', menuProduct);
-      //console.log(' : thisCartProduct', thisCartProduct);
     }
 
     getElements(element) {
@@ -500,15 +483,12 @@
 
       thisCartProduct.dom.edit.addEventListener('click', function (event) {
         event.preventDefault();
-
       });
 
       thisCartProduct.dom.remove.addEventListener('click', function (event) {
         event.preventDefault();
         thisCartProduct.remove();
-        console.log(' : remove');
       });
-
     }
   }
 

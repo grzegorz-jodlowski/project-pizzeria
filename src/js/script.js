@@ -477,15 +477,14 @@
 
     getData() {
       const thisCartProduct = this;
-      const data = {
+
+      return {
         id: thisCartProduct.id,
         amount: thisCartProduct.amount,
         price: thisCartProduct.price,
         priceSingle: thisCartProduct.priceSingle,
         params: thisCartProduct.params,
-      }
-
-      return data;
+      };
     }
 
     getElements(element) {

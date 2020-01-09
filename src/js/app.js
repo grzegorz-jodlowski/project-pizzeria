@@ -8,7 +8,13 @@ const app = {
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
 
-    thisApp.activatePage(thisApp.pages[0]);
+    thisApp.activatePage(thisApp.pages[0].id);
+  },
+
+  activatePage: function (pageId) {
+    const thisApp = this;
+
+
   },
 
   initMenu: function () {
@@ -54,12 +60,12 @@ const app = {
 
   init: function () {
     const thisApp = this;
-    console.log('*** App starting ***');
-    console.log('thisApp:', thisApp);
-    console.log('classNames:', classNames);
-    console.log('settings:', settings);
-    console.log('templates:', templates);
-
+    // console.log('*** App starting ***');
+    // console.log('thisApp:', thisApp);
+    // console.log('classNames:', classNames);
+    // console.log('settings:', settings);
+    // console.log('templates:', templates);
+    thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
   },

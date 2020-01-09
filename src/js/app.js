@@ -9,12 +9,20 @@ const app = {
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
 
     thisApp.activatePage(thisApp.pages[0].id);
+
+    thisApp.navLinks = document.querySelectorAll(select.nav.links);
+
   },
 
   activatePage: function (pageId) {
     const thisApp = this;
+    for (let page of thisApp.pages) {
+      page.classList.toggle(classNames.pages.active, page.id == pageId);
+    }
 
-
+    for (let link of thisApp.navLinks) {
+      link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
+    }
   },
 
   initMenu: function () {

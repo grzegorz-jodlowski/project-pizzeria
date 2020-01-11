@@ -1,4 +1,4 @@
-import { settings, select, classNames, templates } from './settings.js';
+import { settings, select, classNames } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 
@@ -7,11 +7,9 @@ const app = {
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
-
-    thisApp.activatePage(thisApp.pages[0].id);
-
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
+    thisApp.activatePage(thisApp.pages[0].id);
   },
 
   activatePage: function (pageId) {

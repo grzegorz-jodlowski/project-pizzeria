@@ -139,7 +139,7 @@ class Product {
     const thisProduct = this;
 
     const formData = utils.serializeFormToObject(thisProduct.form);
-    console.log(' : formData', formData);
+    //console.log(' : formData', formData);
     thisProduct.params = {};
     let price = thisProduct.data.price;
 

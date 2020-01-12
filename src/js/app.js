@@ -1,6 +1,7 @@
 import { settings, select, classNames } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
+import Booking from './components/Booking.js';
 
 const app = {
   initPages: function () {
@@ -49,7 +50,7 @@ const app = {
 
   initMenu: function () {
     const thisApp = this;
-    console.log('thisApp.data:', thisApp.data);
+    //console.log('thisApp.data:', thisApp.data);
     for (let productData in thisApp.data.products) {
       new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
     }
@@ -66,12 +67,12 @@ const app = {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
+        //console.log('parsedResponse', parsedResponse);
 
         thisApp.data.products = parsedResponse;
         thisApp.initMenu();
       });
-    console.log('aaathisApp.data', JSON.stringify(thisApp.data));
+    //console.log('aaathisApp.data', JSON.stringify(thisApp.data));
 
   },
 
@@ -80,7 +81,7 @@ const app = {
 
     const cartElem = document.querySelector(select.containerOf.cart);
     thisApp.cart = new Cart(cartElem);
-    console.log(' : thisApp.cart');
+    //console.log(' : thisApp.cart');
     thisApp.productList = document.querySelector(select.containerOf.menu);
     thisApp.productList.addEventListener('add-to-cart', function (event) {
       app.cart.add(event.detail.product);
@@ -89,11 +90,11 @@ const app = {
   },
 
   initBooking: function () {
-    //const thisApp = this;
+    const thisApp = this;
 
-    const bookingWidget = document.querySelector(select.containerOf.booking);
+    const bookingWidgetContainer = document.querySelector(select.containerOf.booking);
 
-    const booking = new booking(bookingWidget);
+    thisApp.booking = new Booking(bookingWidgetContainer);
   },
 
   init: function () {

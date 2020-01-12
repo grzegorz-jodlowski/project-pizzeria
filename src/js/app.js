@@ -10,6 +10,17 @@ const app = {
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
     thisApp.activatePage(thisApp.pages[0].id);
+
+    for (let link of thisApp.navLinks) {
+      link.addEventListener('click', function (event) {
+        const clickedElement = this;
+        event.preventDefault();
+
+        const id = clickedElement.getAttribute('href').replace('#', '');
+
+        thisApp.activatePage(id);
+      });
+    }
   },
 
   activatePage: function (pageId) {

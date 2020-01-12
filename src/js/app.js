@@ -9,7 +9,18 @@ const app = {
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
-    thisApp.activatePage(thisApp.pages[0].id);
+    const idFromHash = window.location.hash.replace('#/', '');
+
+    let pageMatchingHash = thisApp.pages[0].id;
+
+    for (let page of thisApp.pages) {
+      if (page.id == idFromHash) {
+        pageMatchingHash = page.id;
+        break;
+      }
+    }
+
+    thisApp.activatePage(pageMatchingHash);
 
     for (let link of thisApp.navLinks) {
       link.addEventListener('click', function (event) {
@@ -19,6 +30,8 @@ const app = {
         const id = clickedElement.getAttribute('href').replace('#', '');
 
         thisApp.activatePage(id);
+
+        window.location.hash = '#/' + id;
       });
     }
   },
@@ -75,6 +88,14 @@ const app = {
     });
   },
 
+  initBooking: function () {
+    //const thisApp = this;
+
+    const bookingWidget = document.querySelector(select.containerOf.booking);
+
+    const booking = new booking(bookingWidget);
+  },
+
   init: function () {
     const thisApp = this;
     // console.log('*** App starting ***');
@@ -85,6 +106,7 @@ const app = {
     thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
+    thisApp.initBooking();
   },
 };
 

@@ -1,6 +1,6 @@
 import BaseWidget from './BaseWidget';
 
-class DataPicker extends BaseWidget {
+class DatePicker extends BaseWidget {
 
 
 

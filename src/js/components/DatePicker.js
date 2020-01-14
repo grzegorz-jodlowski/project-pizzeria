@@ -1,4 +1,4 @@
-import BaseWidget from './BaseWidget';
+import BaseWidget from './BaseWidget.js';
 import utils from '../utils.js';
 import { select, settings } from '../settings.js';
 
@@ -10,23 +10,43 @@ class DatePicker extends BaseWidget {
 
     thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.datePicker.input);
 
-    initPlugin();
+    thisWidget.initPlugin();
   }
 
   initPlugin() {
     const thisWidget = this;
 
     thisWidget.minDate = new Date(thisWidget.value);
-    thisWidget.maxDate = thisWidget.minDate + settings.datePicker.maxDaysInFuture;
+    thisWidget.maxDate = utils.addDays(thisWidget.minDate, settings.datePicker.maxDaysInFuture);
 
-    // TODO initiate plugin flatpickr
+    flatpickr(thisWidget.dom.input, {
+      defaultDate: thisWidget.minDate,
+      minDate: thisWidget.minDate,
+      maxDate: thisWidget.maxDate,
+
+      'disable': [
+        function (date) {
+          // return true to disable
+          return (date.getDay() === 1);
+        }
+      ],
+      'locale': {
+        'firstDayOfWeek': 1 // start week on Monday
+      }
+      //?
+      // onChange: function (selectedDates, dateStr, instance) {
+      //   thisWidget.value = dataStr;
+      // },
+    });
   }
 
   parseValue(value) {
     return value;
   }
 
-
-
-
+  isValid() { //? value as an argument?
+    return true;
+  }
 }
+
+export default DatePicker;

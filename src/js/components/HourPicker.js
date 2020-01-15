@@ -24,8 +24,6 @@ class HourPicker extends BaseWidget {
 
     thisWidget.dom.input.addEventListener('input', function () {
       thisWidget.value = thisWidget.dom.input.value;
-      console.log(' : thisWidget.value', thisWidget.value);
-      console.log(' : thisWidget.value', thisWidget.dom.output.innerHtml);
     });
   }
 
@@ -40,9 +38,8 @@ class HourPicker extends BaseWidget {
   renderValue() {
     const thisWidget = this;
 
-    thisWidget.dom.output.innerHtml = thisWidget.value;
+    thisWidget.dom.output.innerHTML = thisWidget.value;
   }
 }
-
 
 export default HourPicker;

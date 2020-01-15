@@ -25,19 +25,18 @@ class DatePicker extends BaseWidget {
       minDate: thisWidget.minDate,
       maxDate: thisWidget.maxDate,
 
-      'disable': [
+      disable: [
         function (date) {
           // return true to disable
           return (date.getDay() === 1);
         }
       ],
-      'locale': {
-        'firstDayOfWeek': 1 // start week on Monday
-      }
-      //?
-      // onChange: function (selectedDates, dateStr, instance) {
-      //   thisWidget.value = dataStr;
-      // },
+      locale: {
+        firstDayOfWeek: 1 // start week on Monday
+      },
+      onChange: function (_, dateStr) {
+        thisWidget.value = dateStr;
+      },
     });
   }
 
@@ -45,8 +44,14 @@ class DatePicker extends BaseWidget {
     return value;
   }
 
-  isValid() { //? value as an argument?
+  isValid() {
     return true;
+  }
+
+  renderValue() {
+    const thisWidget = this;
+
+    thisWidget.dom.input.value = thisWidget.value;
   }
 }
 

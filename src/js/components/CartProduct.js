@@ -45,6 +45,7 @@ class CartProduct {
     thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
 
     thisCartProduct.dom.amountWidget.addEventListener('updated', function (event) {
+      debugger;
       event.preventDefault();
       thisCartProduct.amount = thisCartProduct.amountWidget.value;
       thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;

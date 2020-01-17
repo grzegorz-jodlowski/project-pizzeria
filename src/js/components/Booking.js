@@ -30,7 +30,7 @@ class Booking {
         endDateParam,
       ],
       eventsRepeat: [
-        settings.db.RepeatParam,
+        settings.db.repeatParam,
         endDateParam,
       ]
     };
@@ -43,14 +43,29 @@ class Booking {
       eventsCurrent: settings.db.url + '/' + settings.db.event + '?' + params.eventsCurrent.join('&'),
       eventsRepeat: settings.db.url + '/' + settings.db.event + '?' + params.eventsRepeat.join('&'),
     };
+
     //console.log(' : urls', urls);
 
-    fetch(urls.booking)
-      .then(function (bookingResponse) {
-        return bookingResponse.json();
+    Promise.all([
+      fetch(urls.booking),
+      fetch(urls.eventsCurrent),
+      fetch(urls.eventsRepeat),
+    ])
+      .then(function (allResponses) {
+        const bookingsResponse = allResponses[0];
+        const eventsCurrentResponse = allResponses[1];
+        const eventsRepeatResponse = allResponses[2];
+
+        return Promise.all([
+          bookingsResponse.json(),
+          eventsCurrentResponse.json(),
+          eventsRepeatResponse.json()
+        ]);
       })
-      .then(function (bookings) {
+      .then(function ([bookings, eventsCurrent, eventsRepeat]) {
         console.log(bookings);
+        console.log(eventsCurrent);
+        console.log(eventsRepeat);
       });
 
   }

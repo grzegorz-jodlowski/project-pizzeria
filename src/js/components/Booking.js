@@ -45,6 +45,14 @@ class Booking {
     };
     //console.log(' : urls', urls);
 
+    fetch(urls.booking)
+      .then(function (bookingResponse) {
+        return bookingResponse.json();
+      })
+      .then(function (bookings) {
+        console.log(bookings);
+      });
+
   }
 
   render(element) {

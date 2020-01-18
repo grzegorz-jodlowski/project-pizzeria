@@ -51,11 +51,10 @@ class Booking {
       fetch(urls.eventsCurrent),
       fetch(urls.eventsRepeat),
     ])
-      .then(function (allResponses) {
-        const bookingsResponse = allResponses[0];
-        const eventsCurrentResponse = allResponses[1];
-        const eventsRepeatResponse = allResponses[2];
-
+      .then(function ([bookingsResponse, eventsCurrentResponse, eventsRepeatResponse]) {
+        // const bookingsResponse = allResponses[0];
+        // const eventsCurrentResponse = allResponses[1];
+        // const eventsRepeatResponse = allResponses[2];
         return Promise.all([
           bookingsResponse.json(),
           eventsCurrentResponse.json(),

@@ -18,38 +18,41 @@ class Booking {
 
     const url = settings.db.url + '/' + settings.db.booking;
 
-
     const payload = {
       id: settings.booking.id,
       date: thisBooking.date,
-      hour: thisBooking.hour,
-      table: thisBooking.subtotalPrice,
-      duration: thisBooking.totalPrice,
-      people: settings.cart.defaultDeliveryFee,
+      hour: utils.numberToHour(thisBooking.hour),
+      table: document.querySelector(select.booking.tables + '.' + classNames.booking.active).getAttribute(settings.booking.tableIdAttribute),
+      duration: document.querySelector(select.booking.hoursAmount + ' input').value,
+      people: document.querySelector(select.booking.peopleAmount + ' input').value,
       starters: [],
     };
 
+    const starters = document.querySelectorAll('div.checkbox input[name="starter"]');
 
-    // for (let starter of thisBooking.products) {
-    //   payload.starters.push(product.getData()); //?
-    // }
+    for (let starter of starters) {
+      if (starter.checked == true) {
+        payload.starters.push(starter.value);
+      }
+    }
+    console.log(' : payload', payload);
 
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    };
-    fetch(url, options)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
+    // const options = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(payload),
+    // };
+    // fetch(url, options)
+    //   .then(function (response) {
+    //     return response.json();
+    //   })
+    //   .then(function (parsedResponse) {
+    //     console.log('parsedResponse', parsedResponse);
 
-        settings.booking.id++;
-      });
+    //     settings.booking.id++;
+    //   });
 
   }
 
@@ -178,7 +181,7 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    console.log(thisBooking.date);
+    console.log(utils.numberToHour(thisBooking.hour));
 
 
   }
@@ -218,6 +221,7 @@ class Booking {
     for (const table of thisBooking.dom.tables) {
       table.addEventListener('click', function () {
         table.classList.toggle(classNames.booking.active);
+        thisBooking.sendBooking();
       });
     }
   }

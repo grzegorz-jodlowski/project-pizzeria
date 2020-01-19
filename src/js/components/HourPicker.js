@@ -26,7 +26,9 @@ class HourPicker extends BaseWidget {
     thisWidget.dom.input.addEventListener('input', function () {
       thisWidget.value = thisWidget.dom.input.value;
 
-
+      for (const table of tables) {
+        table.classList.remove(classNames.booking.active);
+      }
     });
   }
 

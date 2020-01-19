@@ -1,6 +1,6 @@
 import BaseWidget from './BaseWidget.js';
 import utils from '../utils.js';
-import { select, settings } from '../settings.js';
+import { select, settings, classNames } from '../settings.js';
 
 
 class DatePicker extends BaseWidget {
@@ -19,6 +19,8 @@ class DatePicker extends BaseWidget {
     thisWidget.minDate = new Date(thisWidget.value);
     thisWidget.maxDate = utils.addDays(thisWidget.minDate, settings.datePicker.maxDaysInFuture);
 
+    const tables = document.querySelectorAll(select.booking.tables);
+
     // eslint-disable-next-line no-undef
     flatpickr(thisWidget.dom.input, {
       defaultDate: thisWidget.minDate,
@@ -36,6 +38,9 @@ class DatePicker extends BaseWidget {
       },
       onChange: function (_, dateStr) {
         thisWidget.value = dateStr;
+        for (const table of tables) {
+          table.classList.remove(classNames.booking.active);
+        }
       },
     });
   }

@@ -108,6 +108,7 @@ export const settings = {
   },
   booking: {
     tableIdAttribute: 'data-table',
+    id: 1,
   },
   db: {
     url: '//localhost:3131',

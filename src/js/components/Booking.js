@@ -14,6 +14,42 @@ class Booking {
   }
 
   sendBooking() {
+    const thisBooking = this;
+
+    const url = settings.db.url + '/' + settings.db.booking;
+
+
+    const payload = {
+      id: settings.booking.id,
+      date: thisBooking.date,
+      hour: thisBooking.hour,
+      table: thisBooking.subtotalPrice,
+      duration: thisBooking.totalPrice,
+      people: settings.cart.defaultDeliveryFee,
+      starters: [],
+    };
+
+
+    // for (let starter of thisBooking.products) {
+    //   payload.starters.push(product.getData()); //?
+    // }
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
+    fetch(url, options)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (parsedResponse) {
+        console.log('parsedResponse', parsedResponse);
+
+        settings.booking.id++;
+      });
 
   }
 
@@ -142,7 +178,7 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    console.log('updateDOM');
+    console.log(thisBooking.date);
 
 
   }

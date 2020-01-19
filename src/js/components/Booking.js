@@ -17,6 +17,7 @@ class Booking {
     const thisBooking = this;
 
     const url = settings.db.url + '/' + settings.db.booking;
+    console.log(' : url', url);
 
     const payload = {
       id: settings.booking.id,
@@ -35,24 +36,23 @@ class Booking {
         payload.starters.push(starter.value);
       }
     }
-    console.log(' : payload', payload);
 
-    // const options = {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(payload),
-    // };
-    // fetch(url, options)
-    //   .then(function (response) {
-    //     return response.json();
-    //   })
-    //   .then(function (parsedResponse) {
-    //     console.log('parsedResponse', parsedResponse);
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
+    fetch(url, options)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (parsedResponse) {
+        console.log('parsedResponse', parsedResponse);
 
-    //     settings.booking.id++;
-    //   });
+        settings.booking.id++;
+      });
 
   }
 
@@ -220,6 +220,9 @@ class Booking {
     });
     for (const table of thisBooking.dom.tables) {
       table.addEventListener('click', function () {
+        for (const table of thisBooking.dom.tables) {
+          table.classList.remove(classNames.booking.active);
+        }
         table.classList.toggle(classNames.booking.active);
         thisBooking.sendBooking();
       });

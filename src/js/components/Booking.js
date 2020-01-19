@@ -35,8 +35,6 @@ class Booking {
       ]
     };
 
-    //console.log(' : params', params);
-
     const urls = {
 
       booking: settings.db.url + '/' + settings.db.booking + '?' + params.booking.join('&'),
@@ -44,17 +42,12 @@ class Booking {
       eventsRepeat: settings.db.url + '/' + settings.db.event + '?' + params.eventsRepeat.join('&'),
     };
 
-    //console.log(' : urls', urls);
-
     Promise.all([
       fetch(urls.booking),
       fetch(urls.eventsCurrent),
       fetch(urls.eventsRepeat),
     ])
       .then(function ([bookingsResponse, eventsCurrentResponse, eventsRepeatResponse]) {
-        // const bookingsResponse = allResponses[0];
-        // const eventsCurrentResponse = allResponses[1];
-        // const eventsRepeatResponse = allResponses[2];
         return Promise.all([
           bookingsResponse.json(),
           eventsCurrentResponse.json(),
@@ -62,12 +55,7 @@ class Booking {
         ]);
       })
       .then(function ([bookings, eventsCurrent, eventsRepeat]) {
-        // console.log(bookings);
-        // console.log(eventsCurrent);
-        // console.log(eventsRepeat);
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
-
-
       });
   }
 

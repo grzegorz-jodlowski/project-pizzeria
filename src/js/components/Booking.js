@@ -13,6 +13,10 @@ class Booking {
     thisBooking.getData();
   }
 
+  sendBooking() {
+
+  }
+
   getData() {
     const thisBooking = this;
 
@@ -138,6 +142,9 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
+    console.log('updateDOM');
+
+
   }
 
   render(element) {
@@ -170,7 +177,13 @@ class Booking {
 
     thisBooking.dom.wrapper.addEventListener('updated', function () {
       thisBooking.updateDOM();
+
     });
+    for (const table of thisBooking.dom.tables) {
+      table.addEventListener('click', function () {
+        table.classList.toggle(classNames.booking.active);
+      });
+    }
   }
 }
 

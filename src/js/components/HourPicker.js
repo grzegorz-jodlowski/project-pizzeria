@@ -1,6 +1,6 @@
 import BaseWidget from './BaseWidget.js';
 import utils from '../utils.js';
-import { select, settings } from '../settings.js';
+import { select, settings, classNames } from '../settings.js';
 
 
 class HourPicker extends BaseWidget {
@@ -21,9 +21,12 @@ class HourPicker extends BaseWidget {
 
     // eslint-disable-next-line no-undef
     rangeSlider.create(thisWidget.dom.input);
+    const tables = document.querySelectorAll(select.booking.tables);
 
     thisWidget.dom.input.addEventListener('input', function () {
       thisWidget.value = thisWidget.dom.input.value;
+
+
     });
   }
 

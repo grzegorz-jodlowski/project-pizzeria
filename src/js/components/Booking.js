@@ -17,15 +17,14 @@ class Booking {
     const thisBooking = this;
 
     const url = settings.db.url + '/' + settings.db.booking;
-    console.log(' : url', url);
 
     const payload = {
       id: settings.booking.id,
       date: thisBooking.date,
       hour: utils.numberToHour(thisBooking.hour),
-      table: document.querySelector(select.booking.tables + '.' + classNames.booking.active).getAttribute(settings.booking.tableIdAttribute),
-      duration: document.querySelector(select.booking.hoursAmount + ' input').value,
-      people: document.querySelector(select.booking.peopleAmount + ' input').value,
+      table: parseInt(document.querySelector(select.booking.tables + '.' + classNames.booking.active).getAttribute(settings.booking.tableIdAttribute)),
+      duration: parseInt(document.querySelector(select.booking.hoursAmount + ' input').value),
+      people: parseInt(document.querySelector(select.booking.peopleAmount + ' input').value),
       starters: [],
     };
 
@@ -49,9 +48,9 @@ class Booking {
         return response.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
-
-        settings.booking.id++;
+        console.log(' : parsedResponse', parsedResponse);
+        thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
+        thisBooking.updateDOM();
       });
 
   }
@@ -181,8 +180,6 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    console.log(utils.numberToHour(thisBooking.hour));
-
 
   }
 
@@ -224,9 +221,14 @@ class Booking {
           table.classList.remove(classNames.booking.active);
         }
         table.classList.toggle(classNames.booking.active);
-        thisBooking.sendBooking();
       });
     }
+    const submitButton = document.querySelector(select.booking.submitButton);
+    submitButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      thisBooking.sendBooking();
+    });
+
   }
 }
 

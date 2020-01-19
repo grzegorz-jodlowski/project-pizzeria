@@ -63,6 +63,7 @@ export const select = {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
+    submitButton: '.order-confirmation button',
   },
   nav: {
     links: '.main-nav a',
@@ -108,7 +109,7 @@ export const settings = {
   },
   booking: {
     tableIdAttribute: 'data-table',
-    id: 3,
+    id: 2,
   },
   db: {
     url: '//localhost:3131',

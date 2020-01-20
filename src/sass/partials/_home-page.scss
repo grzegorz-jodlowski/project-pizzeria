@@ -1,0 +1,26 @@
+.home-page-wrapper {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+}
+
+.main-info {
+  @include flex(row, stretch, space-between);
+  background-color: $color-warning;
+  flex-wrap: wrap;
+  & div {
+    height: 120px;
+    margin: 2.5px 2.5px;
+    //background-color: $color-main;
+    border: $color-success 1px solid;
+    flex-grow: 1;
+    flex-basis: 40%;
+  }
+
+  &__order {
+    background-image: url("/images/home/pizza-1.jpg");
+    // background-color: $color-main;
+  }
+}

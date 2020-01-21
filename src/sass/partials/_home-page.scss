@@ -18,8 +18,11 @@
     flex-basis: 40%;
     border-radius: $radius;
     @include flex(row, center, center);
+    flex-wrap: wrap;
+    position: relative;
 
     p {
+      flex-grow: 1;
       color: $color-light;
       font-family: $font-header;
       text-transform: uppercase;
@@ -31,6 +34,16 @@
         font-weight: $font-light;
         margin: 0;
       }
+    }
+
+    .main-info--subtitle {
+      position: absolute;
+      top: 90%;
+      left: 0%;
+      width: 100%;
+      text-transform: none;
+      font-family: $font-text;
+      font-size: $base-size;
     }
   }
 
@@ -45,6 +58,9 @@
         transition: all 0.5s;
         transform: translateY(-25px);
       }
+      .main-info--subtitle {
+        transform: translateY(-50px);
+      }
     }
   }
 
@@ -53,5 +69,15 @@
     background-size: cover;
     background-position: center;
     cursor: pointer;
+
+    &:hover {
+      p {
+        transition: all 0.5s;
+        transform: translateY(-25px);
+      }
+      .main-info--subtitle {
+        transform: translateY(-50px);
+      }
+    }
   }
 }

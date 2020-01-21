@@ -9,6 +9,8 @@ const app = {
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
+    thisApp.orderLink = document.querySelector(select.containerOf.orderLink);
+    thisApp.bookingLink = document.querySelector(select.containerOf.bookingLink);
 
     const idFromHash = window.location.hash.replace('#/', '');
 
@@ -35,6 +37,13 @@ const app = {
         window.location.hash = '#/' + id;
       });
     }
+
+    thisApp.orderLink.addEventListener('click', function () {
+      thisApp.activatePage('order');
+    });
+    thisApp.bookingLink.addEventListener('click', function () {
+      thisApp.activatePage('booking');
+    });
   },
 
   activatePage: function (pageId) {

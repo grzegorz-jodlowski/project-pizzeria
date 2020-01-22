@@ -58,6 +58,7 @@
         transition: all 0.5s;
         transform: translateY(-25px);
       }
+
       .main-info--subtitle {
         transform: translateY(-50px);
       }
@@ -75,8 +76,60 @@
         transition: all 0.5s;
         transform: translateY(-25px);
       }
+
       .main-info--subtitle {
         transform: translateY(-50px);
+      }
+    }
+  }
+}
+
+// reviews
+
+// gallery
+
+.gallery {
+  @include flex(row, stretch, space-between);
+  flex-wrap: wrap;
+
+  div {
+    margin: 2px 4px;
+    flex-grow: 1;
+    position: relative;
+
+    div::before {
+      background: black;
+      content: "";
+      display: none;
+      height: 100%;
+      opacity: 0.6;
+      position: absolute;
+      width: 100%;
+    }
+    div:hover::before {
+      display: block;
+    }
+    img {
+      height: 192px;
+      width: 192px;
+      border-radius: $radius;
+      object-fit: cover;
+    }
+
+    &.image-inner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: $base-size * 2;
+
+      i {
+        margin: 7px;
+        color: $color-light;
+
+        &:hover {
+          color: $color-danger;
+        }
       }
     }
   }

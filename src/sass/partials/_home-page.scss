@@ -106,9 +106,11 @@
       position: absolute;
       width: 100%;
     }
+
     div:hover::before {
       display: block;
     }
+
     img {
       height: 192px;
       width: 192px;

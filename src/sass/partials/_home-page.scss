@@ -92,24 +92,28 @@
   @include flex(row, stretch, space-between);
   flex-wrap: wrap;
 
-  div {
-    margin: 2px 4px;
+  > div::before {
+    background: black;
+    content: "";
+    display: none;
+    height: 100%;
+    opacity: 0.6;
+    position: absolute;
+    width: 100%;
+    border-radius: $radius;
+  }
+
+  > div:hover::before {
+    display: block;
+  }
+
+  > div {
+    margin: 4px 4px;
     flex-grow: 1;
     position: relative;
-
-    div::before {
-      background: black;
-      content: "";
-      display: none;
-      height: 100%;
-      opacity: 0.6;
-      position: absolute;
-      width: 100%;
-    }
-
-    div:hover::before {
-      display: block;
-    }
+    height: 192px;
+    width: 192px;
+    border-radius: $radius;
 
     img {
       height: 192px;
@@ -117,22 +121,22 @@
       border-radius: $radius;
       object-fit: cover;
     }
+  }
+}
 
-    &.image-inner {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: $base-size * 2;
+.image-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: $base-size * 2;
 
-      i {
-        margin: 7px;
-        color: $color-light;
+  i {
+    margin: 7px;
+    color: $color-light;
 
-        &:hover {
-          color: $color-danger;
-        }
-      }
+    &:hover {
+      color: $color-danger;
     }
   }
 }

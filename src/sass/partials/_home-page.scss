@@ -121,7 +121,7 @@
 .gallery {
   @include flex(row, stretch, space-between);
   flex-wrap: wrap;
-  margin: ($base-size * 3.5) auto;
+  margin: ($base-size * 2) auto;
 
   > div::before {
     background: black;
@@ -185,5 +185,14 @@ ol.carousel-indicators {
     &.active {
       background-color: #000000;
     }
+  }
+}
+
+// Footer
+
+.page-footer {
+  a {
+    text-decoration: underline;
+    color: $color-main;
   }
 }

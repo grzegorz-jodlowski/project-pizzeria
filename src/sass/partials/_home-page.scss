@@ -59,6 +59,7 @@
         transition: all 0.5s;
         transform: translateY(-25px);
       }
+
       .main-info--subtitle {
         transform: translateY(-50px);
       }
@@ -98,6 +99,7 @@
       object-fit: cover;
       margin: 2.5px;
     }
+
     .carousel-item-description {
       display: inline-block;
       position: absolute;
@@ -174,6 +176,7 @@
 
 ol.carousel-indicators {
   margin-bottom: 0;
+
   li {
     width: 10px;
     height: 10px;

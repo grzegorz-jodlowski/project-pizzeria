@@ -1,9 +1,9 @@
 .home-page-wrapper {
-  margin: ($base-size * 3.5) auto;
-  padding: ($base-size * 6) ($base-size * 4);
   background: $color-light;
   border-bottom: 1px solid lighten($color-dark, 70%);
   border-radius: $radius;
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
 }
 
 .main-info {
@@ -11,24 +11,24 @@
   flex-wrap: wrap;
 
   div {
+    @include flex(row, center, center);
+    background-color: $color-main;
+    border-radius: $radius;
+    flex-basis: 40%;
+    flex-grow: 1;
+    flex-wrap: wrap;
     height: 120px;
     margin: 2.5px 2.5px;
-    background-color: $color-main;
-    flex-grow: 1;
-    flex-basis: 40%;
-    border-radius: $radius;
-    @include flex(row, center, center);
-    flex-wrap: wrap;
     position: relative;
 
     p {
-      flex-grow: 1;
       color: $color-light;
+      flex-grow: 1;
       font-family: $font-header;
-      text-transform: uppercase;
       font-size: $base-size * 2;
-      text-align: center;
       margin: 0;
+      text-align: center;
+      text-transform: uppercase;
 
       span {
         font-size: 14px;
@@ -38,13 +38,13 @@
     }
 
     .main-info--subtitle {
-      position: absolute;
-      top: 100%;
-      left: 0%;
-      width: 100%;
-      text-transform: none;
       font-family: $font-text;
       font-size: $base-size;
+      left: 0%;
+      position: absolute;
+      text-transform: none;
+      top: 100%;
+      width: 100%;
     }
   }
 
@@ -88,23 +88,23 @@
 // reviews
 
 .carousel-inner {
-  margin: ($base-size * 6) 2.5px;
   height: 240px;
+  margin: ($base-size * 6) 2.5px;
 
   .carousel-item {
     img {
-      height: 192px;
-      width: 192px;
       border-radius: $radius;
-      object-fit: cover;
+      height: 192px;
       margin: 2.5px;
+      object-fit: cover;
+      width: 192px;
     }
 
     .carousel-item-description {
       display: inline-block;
+      margin: 20px 0 0 40px;
       position: absolute;
       top: 0;
-      margin: 20px 0 0 40px;
 
       h2 {
         font-size: 14px;
@@ -127,13 +127,13 @@
 
   > div::before {
     background: black;
+    border-radius: $radius;
     content: "";
     display: none;
     height: 100%;
     opacity: 0.6;
     position: absolute;
     width: 100%;
-    border-radius: $radius;
   }
 
   > div:hover::before {
@@ -141,32 +141,32 @@
   }
 
   > div {
-    margin: 4px 4px;
-    flex-grow: 1;
-    position: relative;
-    height: 192px;
-    width: 192px;
     border-radius: $radius;
+    flex-grow: 1;
+    height: 192px;
+    margin: 4px 4px;
+    position: relative;
+    width: 192px;
 
     img {
-      height: 192px;
-      width: 192px;
       border-radius: $radius;
+      height: 192px;
       object-fit: cover;
+      width: 192px;
     }
   }
 }
 
 .image-inner {
-  position: absolute;
+  font-size: $base-size * 2;
   left: 50%;
+  position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: $base-size * 2;
 
   i {
-    margin: 7px;
     color: $color-light;
+    margin: 7px;
 
     &:hover {
       color: $color-danger;
@@ -178,12 +178,12 @@ ol.carousel-indicators {
   margin-bottom: 0;
 
   li {
-    width: 10px;
-    height: 10px;
+    background-color: #cdcdcd;
     border-radius: 50%;
+    height: 10px;
     margin-right: 12px;
     margin-left: 12px;
-    background-color: #cdcdcd;
+    width: 10px;
 
     &.active {
       background-color: #000000;
@@ -195,7 +195,7 @@ ol.carousel-indicators {
 
 .page-footer {
   a {
-    text-decoration: underline;
     color: $color-main;
+    text-decoration: underline;
   }
 }

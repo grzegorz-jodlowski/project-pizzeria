@@ -181,7 +181,6 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    //console.log(' : thisBooking.booked', thisBooking.booked);
     // thisBooking.hourPicker.updatePlugin();
     // const rangeSlider = document.querySelector('.rangeSlider');
     // console.log(' : rangeSlider', rangeSlider);

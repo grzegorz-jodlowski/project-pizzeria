@@ -182,12 +182,9 @@ class Booking {
       }
     }
     //console.log(' : thisBooking.booked', thisBooking.booked);
-
     // thisBooking.hourPicker.updatePlugin();
-
     // const rangeSlider = document.querySelector('.rangeSlider');
     // console.log(' : rangeSlider', rangeSlider);
-
     // rangeSlider.style.cssText = 'background: red;';
 
 

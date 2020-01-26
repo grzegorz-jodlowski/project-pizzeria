@@ -60,10 +60,7 @@
   background: $color-success;
   box-shadow: none;
   height: $base-size;
-
-  &::before {
-    background: $color-warning;
-  }
+  width: 100%;
 
   &__handle {
     box-shadow: none;
@@ -92,6 +89,8 @@
 
   &__buffer {
     background: $color-main;
+    top: 0;
+    height: $base-size;
   }
 }
 

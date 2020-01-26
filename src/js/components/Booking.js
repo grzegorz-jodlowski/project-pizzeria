@@ -181,7 +181,10 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    console.log(' : thisBooking.booked', thisBooking.booked);
+    //console.log(' : thisBooking.booked', thisBooking.booked);
+
+    thisBooking.hourPicker.updatePlugin();
+
 
   }
 

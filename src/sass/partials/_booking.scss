@@ -57,10 +57,17 @@
 
 .rangeSlider {
   top: $base-size;
-  background: $color-success;
+  background: none;
   box-shadow: none;
   height: $base-size;
   width: 100%;
+  @include flex(row, stretch, flex-start);
+  flex-wrap: nowrap;
+
+  .range-div {
+    height: 12px;
+    flex-grow: 1;
+  }
 
   &__handle {
     box-shadow: none;
@@ -81,17 +88,23 @@
   }
 
   &__fill {
-    background: $color-success;
+    background: none;
     transition-timing-function: cubic-bezier(0, 1, 0, 1);
     transition: width 100ms;
     box-shadow: none;
   }
+}
 
-  &__buffer {
-    background: $color-main;
-    top: 0;
-    height: $base-size;
-  }
+.green {
+  background: green;
+}
+
+.yellow {
+  background: orange;
+}
+
+.red {
+  background: red;
 }
 
 .flatpickr-day {

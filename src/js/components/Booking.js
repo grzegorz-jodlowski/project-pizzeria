@@ -100,6 +100,8 @@ class Booking {
       .then(function ([bookings, eventsCurrent, eventsRepeat]) {
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
+
+
   }
 
   parseData(bookings, eventsCurrent, eventsRepeat) {
@@ -127,7 +129,37 @@ class Booking {
       }
     }
     thisBooking.updateDOM();
+
+    const hours = [];
+    for (let i = settings.hours.open; i < settings.hours.close; i = i + 0.5) {
+      hours.push(i);
+    }
+
+    hours.forEach(hour => {
+      const element = document.createElement('div');
+      element.classList.add('range-div');
+
+      if (!thisBooking.booked[thisBooking.date].hasOwnProperty(hour)) {
+        element.classList.add('green');
+      } else {
+        const status = thisBooking.booked[thisBooking.date][hour].length;
+        switch (status) {
+          case 1:
+            element.classList.add('green');
+            break;
+          case 2:
+            element.classList.add('yellow');
+            break;
+          default:
+            element.classList.add('red');
+        }
+      }
+      const rangeBackground = document.querySelector('.rangeSlider');
+      rangeBackground.appendChild(element);
+    });
+
   }
+
 
   makeBooked(date, hour, duration, table) {
     const thisBooking = this;
@@ -181,13 +213,6 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    // thisBooking.hourPicker.updatePlugin();
-    // const rangeSlider = document.querySelector('.rangeSlider');
-    // console.log(' : rangeSlider', rangeSlider);
-    // rangeSlider.style.cssText = 'background: red;';
-
-
-
   }
 
   render(element) {

@@ -39,14 +39,6 @@ class HourPicker extends BaseWidget {
       buffer: null,       // Number, in percent, 0 by default
       stick: null,        // [Number stickTo, Number stickRadius] : use it if handle should stick to stickTo-th value in stickRadius
       borderRadius: 10,   // Number, if you use buffer + border-radius in css for looks good,
-      // onInit: function () {
-      //   console.info('onInit');
-      //   this.onSlideStart();
-      // },
-      onSlideStart: function (position, value) {
-        console.info('onSlideStart', 'position: ' + position, 'value: ' + value);
-
-      },
     });
 
 

@@ -111,7 +111,7 @@ export const settings = {
   },
   booking: {
     tableIdAttribute: 'data-table',
-    id: 2,
+    id: 1,
   },
   db: {
     url: '//' + window.location.hostname + (window.location.hostname == 'localhost' ? ':3131' : ''),

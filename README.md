@@ -1,7 +1,6 @@
 <p align="center">
-<a href="https://grzegorz-jodlowski.github.io/project-pizzeria/"><img src="src/images/logo8.jpg" title="pizza" alt="salami pizza"></a>
+<a href="https://mysterious-fjord-34712.herokuapp.com/"><img src="src/images/logo8.jpg" title="pizza" alt="salami pizza"></a>
 </p>
-
 
 
 # <p align="center">🍕 Pizzeria project</p>

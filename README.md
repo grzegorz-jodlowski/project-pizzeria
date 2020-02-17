@@ -36,18 +36,24 @@ This is a SPA (Single Page Application) for pizzerias. It is divided into severa
 </br>
 
 ## <a name="what"></a>What I learned?
+- use more advanced object-oriented programming,
+- knew the difference between functional and object-oriented programming,
+- create file structures according to various conventions (including scss file splitting),
+- use Handlebars (HTML template) in more advanced way,
+- create exceptions for code quality checking plugins (ESLint),
+- work in Kanban system and SCRUM agile methodology,
+- use different types of events (change, click, submit etc.) and create completely new types,
+- copy objects in different ways:
+  - deep copy - JSON.parse(JSON.stringify(object);
+  - shallow copy - Object.assign({}, object),
+- use the outline in the VS code in the form of "table of contents",
+- create and modify JSONs (JavaScript Object Notation),
+- use Asynchronous JavaScript and XML,
+-
+- use tools to compare changes in files (Meld, P4Merge)
 -
 -
--
--
--
--
--
--
--
-- plugins to VS code (list)
-- Meld czy P4Merge – pozwalają one nawet na porównywanie całych katalogów.
-- ...
+- plugins to VS code
 
 
 </br>

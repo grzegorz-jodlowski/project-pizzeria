@@ -5,7 +5,7 @@
 
 # <p align="center">🍕 Pizzeria project</p>
 <p align="center"></p>
-
+Project for learning object-oriented programming, AJAX and API
 </br>
 
 ## Table of Contents
@@ -20,6 +20,7 @@
 
 ## <a name="about"></a>What's this project about?
 
+This is a SPA (Single Page Application) for pizzerias. It is divided into several tabs (Home, Order, Booking). The "Home page" contains general information (several interesting CSS effects are used). The "Order" tab allows interactive selection of ingredients with SVG image display as well as adding them to the cart and modifying the quantity for the order. In the "Booking" tab we can see the layout of the restaurant, check the availability of tables and reserve a specific table.
 
 
 </br>
@@ -35,6 +36,15 @@
 </br>
 
 ## <a name="what"></a>What I learned?
+-
+-
+-
+-
+-
+-
+-
+-
+-
 - plugins to VS code (list)
 - Meld czy P4Merge – pozwalają one nawet na porównywanie całych katalogów.
 - ...

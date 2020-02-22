@@ -14,6 +14,7 @@
 - [Technologies used](#technologies)
 - [What I learned?](#what)
 - [Interesting code snippet](#interesting)
+- [Installation](#install)
 - [Heroku](#heroku)
 
 </br>
@@ -169,13 +170,26 @@ This is a SPA (Single Page Application) for pizzerias. It is divided into severa
   }
 ```
 
-
-
-
-
 </br>
 
+## <a name="install"></a>Installation
 
+- use the package manager [npm](https://www.npmjs.com/get-npm) to install dependencies:
+
+```bash
+npm install
+
+or
+
+npm i
+```
+- run watch mode to start the server, constantly refreshing and more:
+
+```bash
+npm run watch
+```
+
+<br/>
 
 ## <a name="heroku"></a>Heroku
 <a href="https://mysterious-fjord-34712.herokuapp.com/">Pizzeria project</a>

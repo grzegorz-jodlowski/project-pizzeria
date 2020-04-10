@@ -15,7 +15,9 @@
 - [What I learned?](#what)
 - [Interesting code snippet](#interesting)
 - [Installation](#install)
-- [Heroku](#heroku)
+- [NPM scripts](#scr)
+- [Website (on Heroku)](#site)
+
 
 </br>
 
@@ -191,8 +193,19 @@ npm run watch
 
 <br/>
 
-## <a name="heroku"></a>Heroku
+## <a name="scr"></a>NPM scripts
+
+There are 3 main scripts to speed up work:
+
+- `build`: builds a project,
+- `watch`: observes changes and starts working preview,
+- `test`: starting the tests of html and CSS structure,
+
+<br/>
+
+## <a name="site"></a>Website (on Heroku)
 <a href="https://mysterious-fjord-34712.herokuapp.com/">Pizzeria project</a>
+- if the page loads slowly, wait a moment, the server is waking up because it is hosted on a free platform Heroku.
 
 
 </br>

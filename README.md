@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://mysterious-fjord-34712.herokuapp.com/"><img src="src/images/logo8.jpg" title="pizza" alt="salami pizza"></a>
+<a href="https://pizzeria-for-customers.herokuapp.com/"><img src="src/images/logo8.jpg" title="pizza" alt="salami pizza"></a>
 </p>
 
 
@@ -204,7 +204,7 @@ There are 3 main scripts to speed up work:
 <br/>
 
 ## <a name="site"></a>Website (on Heroku)
-<a href="https://mysterious-fjord-34712.herokuapp.com/">Pizzeria project</a>
+<a href="https://pizzeria-for-customers.herokuapp.com/">Pizzeria project</a>
 - if the page loads slowly, wait a moment, the server is waking up because it is hosted on a free platform Heroku.
 
 
